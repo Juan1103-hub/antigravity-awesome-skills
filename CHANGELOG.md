@@ -7,6 +7,104 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [6.8.0] - 2026-03-02 - "Productivity Boost & In-App Sync"
+
+> **Major productivity enhancements to existing skills and new in-app skill synchronization feature.**
+
+This release delivers version 2.0.0 upgrades to two critical skills: `vibe-code-auditor` and `tutorial-engineer`, packed with pattern recognition shortcuts, deterministic scoring, and copy-paste templates. Plus, a new "Sync Skills" button in the Web App enables live skill updates from GitHub without leaving the browser.
+
+## 🚀 New Features
+
+### 🔄 In-App Sync Skills Button
+
+**One-click skill synchronization from the Web App UI.**
+Replaces the unreliable START_APP.bat auto-updater. Users can now click "Sync Skills" in the web app to download the latest skills from GitHub instantly.
+
+- Vite dev server plugin exposing `/api/refresh-skills` endpoint
+- Downloads and extracts only the `/skills/` folder and `skills_index.json`
+- Live UI updates without page refresh
+
+## 📦 Improvements
+
+### ✨ vibe-code-auditor v2.0.0
+
+**Productivity-focused overhaul with 10x faster audits.**
+
+- **Pattern Recognition Shortcuts**: 10 heuristics for rapid issue detection
+- **Quick Checks**: 3-second scans for each of 7 audit dimensions
+- **Executive Summary**: Critical findings upfront
+- **Deterministic Scoring**: Replaces subjective ranges with algorithmic scoring
+- **Code Fix Blocks**: Before/after examples for copy-paste remediation
+- **Quick Wins Section**: Fixes completable in <1 hour
+- **Calibration Rules**: Scoring adjusted by code size (snippet vs multi-file)
+- **Expanded Security**: SQL injection, path traversal, insecure deserialization detection
+
+### 📚 tutorial-engineer v2.0.0
+
+**Evidence-based learning with 75% better retention.**
+
+- **4-MAT Model**: Why/What/How/What If framework for explanations
+- **Learning Retention Shortcuts**: Evidence-based patterns (+75% retention)
+- **Cognitive Load Management**: 7±2 rule, One Screen, No Forward References
+- **Exercise Calibration**: Difficulty table with time estimates
+- **Format Selection Guide**: Quick Start vs Deep Dive vs Workshop
+- **Pre-Publish Audit Checklist**: Comprehension, progression, technical validation
+- **Speed Scoring Rubric**: 1-5 rating on 5 dimensions
+- **Copy-Paste Template**: Ready-to-use Markdown structure
+- **Accessibility Checklist**: WCAG compliance for tutorials
+
+## 👥 Credits
+
+A huge shoutout to our community contributors:
+
+- **@munir-abbasi** for the v2.0.0 productivity enhancements to `vibe-code-auditor` and `tutorial-engineer` (PR #172)
+- **@zinzied** for the In-App Sync Skills Button and START_APP.bat simplification (PR #178)
+
+---
+
+## [6.7.0] - 2026-03-01 - "Intelligence Extraction & Automation"
+
+> **New skills for Web Scraping (Apify), X/Twitter extraction, Genomic analysis, and hardened registry infrastructure.**
+
+This release integrates 14 new specialized agent-skills. Highlights include the official Apify collection for web scraping and data extraction, a high-performance X/Twitter scraper, and a comprehensive genomic analysis toolkit. The registry infrastructure has been hardened with hermetic testing and secure YAML parsing.
+
+## 🚀 New Skills
+
+### 🕷️ [apify-agent-skills](skills/apify-actorization/)
+
+**12 Official Apify skills for web scraping and automation.**
+Scale data extraction using Apify Actors. Includes specialized skills for e-commerce, lead generation, social media analysis, and market research.
+
+### 🐦 [x-twitter-scraper](skills/x-twitter-scraper/)
+
+**High-performance X (Twitter) data extraction.**
+Search tweets, fetch profiles, and extract media/engagement metrics without complex API setups.
+
+### 🧬 [dna-claude-analysis](skills/dna-claude-analysis/)
+
+**Personal genome analysis toolkit.**
+Analyze raw DNA data across 17 categories (health, ancestry, pharmacogenomics) with interactive HTML visualization.
+
+---
+
+## 📦 Improvements
+
+- **Registry Hardening**: Migrated all registry maintenance scripts to `PyYAML` for safe, lossless metadata handling. (PR #168)
+- **Hermetic Testing**: Implemented environment-agnostic registry tests to prevent CI drift.
+- **Contributor Sync**: Fully synchronized the Repo Contributors list in README.md from git history (69 total contributors).
+- **Documentation**: Standardized H2 headers in README.md (no emojis) for clean Table of Contents anchors, following Maintenance V5 rules.
+- **Skill Metadata**: Enhanced description validation and category consistency across 968 skills.
+
+## 👥 Credits
+
+A huge shoutout to our community contributors:
+
+- **@ar27111994** for the 12 Apify skills and registry hardening (PR #165, #168)
+- **@kriptoburak** for `x-twitter-scraper` (PR #164)
+- **@shmlkv** for `dna-claude-analysis` (PR #167)
+
+---
+
 ## [6.6.0] - 2026-02-28 - "Community Skills & Quality"
 
 > **New skills for Android UI verification, memory handling, video manipulation, vibe-code auditing, and essential fixes.**
@@ -39,6 +137,10 @@ Check prototypes and generated code for structural flaws, hidden technical debt,
 
 ## 📦 Improvements
 
+- **Skill Description Restoration**: Recovered 223+ truncated descriptions from git history that were corrupted in release 6.5.0.
+- **Robust YAML Tooling**: Replaced fragile regex parsing with `PyYAML` across all maintenance scripts (`manage_skill_dates.py`, `validate_skills.py`, etc.) to prevent future data loss.
+- **Refined Descriptions**: Standardized all skill descriptions to be under 200 characters while maintaining grammatical correctness and functional value.
+- **Cross-Platform Index**: Normalized `skills_index.json` to use forward slashes for universal path compatibility.
 - **Skill Validation Fixes**: Corrected invalid description lengths and `risk` fields in `copywriting`, `videodb-skills`, and `vibe-code-auditor`. (Fixes #157, #158)
 - **Documentation**: New dedicated `docs/SEC_SKILLS.md` indexing all 128 security skills.
 - **README Quality**: Cleaned up inconsistencies, deduplicated lists, updated stats (954+ total skills).
